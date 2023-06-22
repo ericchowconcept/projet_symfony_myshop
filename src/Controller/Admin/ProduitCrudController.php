@@ -28,9 +28,9 @@ class ProduitCrudController extends AbstractCrudController
             TextEditorField::new('description'),
             TextField::new('couleur'),
             ChoiceField::new('taille')->setChoices([
-                'Small' => 'small',
-                'Medium'=> 'medium',
-                'Large'=> 'large' 
+                'Small' => 'Small',
+                'Medium'=> 'Medium',
+                'Large'=> 'Large' 
             ]),
             ChoiceField::new('collection')->setChoices([
                 'Homme' => 'homme',

@@ -54,6 +54,9 @@ class DashboardController extends AbstractDashboardController
         MenuItem::section('Commandes'),
         MenuItem::linkToCrud('Commande', 'fas fa-shopping-cart', Commande::class),
 
+        MenuItem::section('Retour au site'),
+        MenuItem::linkToRoute('Accueil du site', 'fas fa-place-of-worship', 'home'),
+
              
 
         ];

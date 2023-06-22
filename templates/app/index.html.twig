@@ -5,20 +5,20 @@
 {% block body %}
 <h1 class="text-center">Hello!</h1>
 <div class="container">
-<div class="row">
-{% for produit in produits %}
-<div class="col-4">
-<div class="card  border-primary me-3 mb-3" style="max-width: 20rem;">
-  <div class="card-header">{{ produit.titre }} {{ produit.couleur }}</div>
-  <div class="card-body">
-    <img src="{{ asset('images/produit/' ~ produit.photo) }}" alt=""  width="300px" height="500px" class="img-fluid">
-    <p class="card-text my-2">{{ produit.description|striptags }}</p>
-    <h5 class="text-end">{{ produit.prix|format_currency('EUR') }}</h5>
-  </div>
+  <div class="row">
+  {% for produit in produits %}
+    <div class="col-4">
+    <div class="card  border-primary me-3 mb-3" style="max-width: 20rem;">
+    <div class="card-header">{{ produit.titre }}</div>
+    <div class="card-body">
+      <img src="{{ asset('images/produit/' ~ produit.photo) }}" alt=""  width="300px" height="500px" class="img-fluid">
+      <p class="card-text my-2">{{ produit.description|striptags }}</p>
+      <h5 class="text-end">{{ produit.prix|format_currency('EUR') }}</h5>
+    </div>
     <div class="card-footer row d-flex">
       <a href="{{ path('cart_add', {id: produit.id}) }}" class="btn btn-primary"><i class="fas fa-cart-arrow-down fa-lg"></i></a>
     </div>
-</div>
+  </div>
 </div>
 {% endfor %}
 </div>

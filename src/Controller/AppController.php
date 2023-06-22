@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
+use App\Repository\CommandeRepository;
+use App\Repository\MembreRepository;
 use App\Service\CartService;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -31,6 +33,8 @@ class AppController extends AbstractController
         $cs->add($id);
         return $this->redirectToRoute('home');
     }
+
+  
 
     #[Route('cart/remove/{id}', name:'cart_remove')]
     public function remove($id, CartService $cs)
@@ -76,6 +80,13 @@ class AppController extends AbstractController
             {
                 $commande   -> setQuantite($item['produit']->getStock())
                             -> setMontant($item['quantity'] * $item['produit']->getPrix());
+
+                if($item['produit']->getStock() <= 0)
+                {
+                    $this->addFlash('danger', 'Ils nous restent plus de stock');
+                    return $this->redirectToRoute('cart');
+                }
+                
             }else{
                 $commande   -> setQuantite($item['quantity'])
                             -> setMontant($item['quantity'] * $item['produit']->getPrix());
@@ -97,4 +108,17 @@ class AppController extends AbstractController
         $this->addFlash('success', 'Votre commande a été bien enregistré');
         return $this->redirectToRoute('home');
     }
+
+    #[Route('/monCompte', name:'user_profile')]
+    public function profile(CommandeRepository $reco)
+    {
+        $commandes = $reco->findBy(['membre' => $this->getUser('id')]);
+
+            return $this->render('app/moncompte.html.twig',[
+                'commandes' => $commandes,
+                
+            ]);
+    }
+
+
 }
