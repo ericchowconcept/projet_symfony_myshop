@@ -25,9 +25,11 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="#">Accueil</a>
                         </li>
+                        {% if is_granted("ROLE_ADMIN") %}
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ path('admin') }}">Backend</a>
                         </li>
+                        {% endif %}
                     </ul>
                 
                     {% if app.user %}
@@ -51,6 +53,9 @@
                 </div>
             </div>
         </nav>
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-dark text-center w-50 mx-auto my-2">{{ message }}</div>   
+        {% endfor %}
         {% block body %}
         
         {% endblock %}

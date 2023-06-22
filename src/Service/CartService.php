@@ -92,4 +92,14 @@ class CartService
 
         return $total;
     }
+
+    public function removeSession()
+    {
+        $session = $this->rs->getSession();
+
+       $session->remove('qt');
+       $session->remove('cart');
+
+        
+    }
 }

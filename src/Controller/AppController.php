@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
 use App\Service\CartService;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -51,5 +52,49 @@ class AppController extends AbstractController
             'total' => $total
         ]);
     
+    }
+
+    #[Route('cart/order', name:'order')]
+    public function order(CartService $cs, EntityManagerInterface $manager)
+    {
+        if($this->getUser())
+        {
+            $membre = $this->getUser();
+        }else{
+            $this->addFlash('success', 'Connectez vous ou Inscrivez vous pour reserver!');
+            return $this->redirectToRoute('home'); 
+        }
+
+        $commande = new Commande;
+
+        
+
+        $cartWithData = $cs->cartWithData();
+        foreach($cartWithData as $item )
+        {
+            if($item['produit']->getStock() < $item['quantity'])
+            {
+                $commande   -> setQuantite($item['produit']->getStock())
+                            -> setMontant($item['quantity'] * $item['produit']->getPrix());
+            }else{
+                $commande   -> setQuantite($item['quantity'])
+                            -> setMontant($item['quantity'] * $item['produit']->getPrix());
+            }
+
+            $commande   -> setMembre($membre)
+                        -> setProduit($item['produit'])
+                        -> setEtat('En cours de traitement')
+                        -> setDateEnregistrement(new \DateTime);
+            
+            
+            $manager->persist($commande);
+            $item['produit']->setStock($item['produit']->getStock() - $item['quantity']);
+            $manager->persist($item['produit']);
+            
+        }
+        $manager->flush();
+        $cs->removeSession();
+        $this->addFlash('success', 'Votre commande a été bien enregistré');
+        return $this->redirectToRoute('home');
     }
 }
