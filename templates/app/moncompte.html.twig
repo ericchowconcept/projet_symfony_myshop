@@ -13,20 +13,20 @@
 {% for order in commandes %}
         <div class="col-4">
             <div class="card text-center">
-            <div class="card-header">
-                Commande #{{ order.id }}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">{{ order.produit.titre }}</h5>
-                <img src="{{ asset('images/produit/' ~ order.produit.photo) }}" class="img-fluid" alt="">
-                <p class="card-text">Taille : {{ order.produit.taille }}</p>
-                <p class="card-text">Quantité : {{ order.quantite }}</p>
-                <p class="card-text">Montant : {{ order.montant }}</p>
-                <a href="{{ path('home') }}" class="btn btn-primary">Commander à nouveau</a>
-            </div>
-            <div class="card-footer text-muted">
-                commandé le {{ order.dateEnregistrement|date('d/m/Y H:i') }}
-            </div>
+              <div class="card-header">
+                  Commande #{{ order.id }}
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title">{{ order.produit.titre }}</h5>
+                  <img src="{{ asset('images/produit/' ~ order.produit.photo) }}" class="img-fluid" alt="">
+                  <p class="card-text">Taille : {{ order.produit.taille }}</p>
+                  <p class="card-text">Quantité : {{ order.quantite }}</p>
+                  <p class="card-text">Montant : {{ order.montant }}</p>
+                  <a href="{{ path('home') }}" class="btn btn-primary">Commander à nouveau</a>
+              </div>
+              <div class="card-footer text-muted">
+                  commandé le {{ order.dateEnregistrement|date('d/m/Y H:i') }}
+              </div>
             </div>
         </div>
 {% endfor %}
@@ -38,7 +38,7 @@
     <a href="{{ path('home') }}" class="btn btn-primary mt-4 col-2 p-1" >Découvrir notre collection</a>
 </div>
 {% endif %}
-<h2 class="text-center text-secondary mt-5">FAQ</h2>
+<h2 class="text-center text-secondary my-5">FAQ</h2>
 <div class="accordion mt-2" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -101,4 +101,9 @@
     </div>
   </div>
 </div>
+
+
+</div>
+</div>
+
 {% endblock %}
