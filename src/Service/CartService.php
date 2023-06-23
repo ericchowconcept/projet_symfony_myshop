@@ -39,6 +39,29 @@ class CartService
         $session->set('cart', $cart);
     }
 
+    public function minus($id)
+    {
+        $session = $this->rs->getSession();
+        $cart = $session->get('cart',[]);
+
+        $qt = $session->get('qt', 0);
+
+
+        if(!empty($cart[$id] && $qt > 1))
+        {
+            $cart[$id]--;
+            $qt--;
+        }else{
+
+            $qt-= $cart[$id];
+            unset($cart[$id]);
+
+        }
+
+        $session->set('qt', $qt); 
+        $session->set('cart', $cart);
+    }
+
     public function remove($id)
     {
         $session = $this->rs->getSession();

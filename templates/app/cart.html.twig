@@ -21,7 +21,11 @@
             <tr>
                 <td>{{ item.produit.titre }}</td>
                 <td>{{ item.produit.prix }}</td>
-                <td>{{ item.quantity }}</td>
+                <td>
+                    <a href="{{ path('incart_minus', {id: item.produit.id}) }}" class="btn btn-light">-</a>
+                    {{ item.quantity }}
+                    <a href="{{ path('incart_add', {id: item.produit.id}) }}" class="btn btn-light">+</a>
+                </td>
                 <td>{{ item.produit.prix * item.quantity }}</td>
                 <td><a href="{{ path('cart_remove', {id: item.produit.id}) }}" class="text-danger"><i class="fas fa-trash-alt fa-sm"></i></a></td>
             </tr>

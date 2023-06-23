@@ -24,6 +24,12 @@ class AppController extends AbstractController
         ]);
     }
 
+    #[Route('/FAQ', name:'faq')]
+    public function faq()
+    {
+        return $this->render('app/faq.html.twig');
+    }
+
     
     
     #[Route('/cart/add/{id}', name:'cart_add')]
@@ -34,6 +40,21 @@ class AppController extends AbstractController
         return $this->redirectToRoute('home');
     }
 
+    #[Route('/in_cart/add/{id}', name:'incart_add')]
+    public function addInCart($id, CartService $cs)
+    {
+        
+        $cs->add($id);
+        return $this->redirectToRoute('cart');
+    }
+    
+    #[Route('/in_cart/minus/{id}', name:'incart_minus')]
+    public function minusInCart($id, CartService $cs)
+    {
+        
+        $cs->minus($id);
+        return $this->redirectToRoute('cart');
+    }
   
 
     #[Route('cart/remove/{id}', name:'cart_remove')]
