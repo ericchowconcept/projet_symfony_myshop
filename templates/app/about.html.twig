@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Notre histoire{% endblock %}
+
+{% block body %}
+<h1 class="text-center mb-5">Notre histoire</h1>
+<div class="container feature">
+<h2 class="text-center my-3 text-primary">Notre fondateur</h2>
+  <div class="row featurette my-5">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">Un homme passionné et déterminé<span class="text-muted"> à faire des lasagnes exceptionnelles.</span></h2>
+      <p class="lead my-2">Vincent, ancien boucher, a trouvé sa véritable passion dans la création de délicieuses lasagnes faites maison. Et sans exagération, ses lasagnes sont tout simplement les meilleures !</p>
+      <p class="lead my-2">Après avoir perfectionné ses compétences en tant que boucher, Vincent a décidé de changer de voie pour poursuivre sa passion pour la technologie. Il s'est plongé dans le monde du développement web et a choisi de se spécialiser dans le langage PHP et le framework Symfony. Sa détermination et sa soif de connaissances l'ont rapidement propulsé vers l'excellence.</p>  
+      <p class="lead my-2">Vincent est devenu un développeur PHP Symfony chevronné, maîtrisant les tenants et les aboutissants de ce framework puissant. Son expertise lui a valu une réputation enviable dans la communauté du développement web. Cependant, il ne s'est pas contenté de ses succès personnels.</p>
+      <p class="lead my-2">Animé par son désir de partager ses connaissances et de former la prochaine génération de maîtres en PHP Symfony, Vincent est devenu un formateur dévoué. Il a consacré son temps et son énergie à guider et à inspirer de futurs développeurs, leur transmettant son amour pour la programmation et partageant ses astuces précieuses.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="{{ asset('images/produit/mario.png') }}" alt="" style="object-fit: cover;"  class="img-fluid">
+    </div>
+  </div>
+  <div class="row featurette mb-5">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Bien que Vincent soit passionné par les lasagnes et l'univers du développement web, <span class="text-muted">il a une aversion particulière pour ChatGPT. Il préfère de loin les échanges authentiques et les conversations avec de vraies personnes, où la créativité et l'émotion peuvent véritablement s'exprimer.</span></h2>
+      <p class="lead my-2">Vincent incarne l'esprit de notre marque, alliant passion, expertise et un soupçon d'audace pour créer des lasagnes qui font vibrer les papilles. Son parcours inspirant et son amour pour la cuisine nous ont conduits à créer une gamme de produits uniques et savoureux, qui reflètent son héritage culinaire.</p>
+      <p class="lead my-2">Nous sommes fiers de vous présenter les délicieuses lasagnes de Vincent Ferreira, une véritable œuvre d'art gastronomique qui vous transportera dans un monde de saveurs exquises. Découvrez la passion et le dévouement de notre fondateur à travers chaque bouchée, et laissez-vous séduire par le goût inégalé de ses lasagnes faites avec amour et savoir-faire.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+           <img src="{{ asset('images/produit/lasagne.jpg') }}" alt="" style="object-fit: cover;"  class="img-fluid">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

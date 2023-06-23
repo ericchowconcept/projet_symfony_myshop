@@ -29,7 +29,7 @@
                             <a class="nav-link active" href="{{ path('faq') }}">FAQ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="">About</a>
+                            <a class="nav-link active" href="{{ path('story') }}">About</a>
                         </li>
                         {% if is_granted("ROLE_ADMIN") %}
                         <li class="nav-item">
@@ -72,10 +72,10 @@
             <div class="col-4  mb-3">
                 <h5>Section</h5>
                 <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Accueil</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Nos produits</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                <li class="nav-item mb-2"><a href="{{ path('home') }}" class="nav-link p-0 text-muted">Accueil</a></li>
+                <li class="nav-item mb-2"><a href="#produits" class="nav-link p-0 text-muted">Nos produits</a></li>
+                <li class="nav-item mb-2"><a href="{{ path('faq') }}" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="{{ path('story') }}" class="nav-link p-0 text-muted">About</a></li>
                 </ul>
             </div>
             <div class="col-2"></div>

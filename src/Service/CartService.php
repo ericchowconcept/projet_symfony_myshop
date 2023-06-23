@@ -47,7 +47,7 @@ class CartService
         $qt = $session->get('qt', 0);
 
 
-        if(!empty($cart[$id] && $qt > 1))
+        if(!empty($cart[$id] && $cart[$id] > 1))
         {
             $cart[$id]--;
             $qt--;

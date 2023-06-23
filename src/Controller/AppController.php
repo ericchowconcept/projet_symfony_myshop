@@ -29,6 +29,11 @@ class AppController extends AbstractController
     {
         return $this->render('app/faq.html.twig');
     }
+    #[Route('/story', name:'story')]
+    public function story()
+    {
+        return $this->render('app/about.html.twig');
+    }
 
     
     
