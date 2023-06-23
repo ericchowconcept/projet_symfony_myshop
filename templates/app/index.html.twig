@@ -3,13 +3,62 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        {# <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg> #}
+        <img src="{{ asset('images/produit/1.jpg') }}" alt="" style="height: 600px; width: 100vw; object-fit: cover;"  class="img-fluid">
+        <div class="container p-2">
+          <div class="carousel-caption text-start">
+            <h2 >Rejoignez le mouvement pour une mode éco-responsable</h2>
+            <p>Contribuez à préserver notre planète en choisissant des produits respectueux de l'environnement</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Nos valeurs</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item active">
+        {# <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg> #}
+        <img src="{{ asset('images/produit/2.jpg') }}" alt="" style="height: 600px; width: 100vw; object-fit: cover;"  class="img-fluid">
+        <div class="container p-2">
+          <div class="carousel-caption">
+            <h1>L'indispensable de votre garde-robe : Les polos de qualité supérieure</h1>
+            <p>Explorez notre gamme de polos tendance pour une allure élégante en toute occasion.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Découvrir notre collection</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        {# <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg> #}
+        <img src="{{ asset('images/produit/3.jpg') }}" alt="" style="height: 600px; width: 100vw; object-fit: cover;"  class="img-fluid">
+        <div class="container p-2">
+          <div class="carousel-caption text-end">
+            <h2>Notre parcours vers l'excellence</h2>
+            <p>Découvrez notre histoire, de nos modestes débuts à notre réussite en tant que leader de l'industrie</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Notre histoire</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
 <div class="container">
   <div class="row">
   {% for produit in produits %}
-    <div class="col-4">
-    <div class="card  border-primary me-3 mb-3" style="max-width: 20rem;">
+    <div class="col-3">
+    <div class="card  border-primary me-1 my-3" style="max-width: 20rem;">
     <div class="card-header">{{ produit.titre }}</div>
     <div class="card-body">
       <img src="{{ asset('images/produit/' ~ produit.photo) }}" alt=""  width="300px" height="500px" class="img-fluid">

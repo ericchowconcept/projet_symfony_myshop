@@ -7,6 +7,9 @@
 <h1 class="text-center my-5">Bonjour {{ app.user.pseudo }}!!!</h1>
 <div class="container">
     <div class="row">
+{% if commandes %}
+
+<h2 class="text-center text-secondary">Historique des commandes</h2>
 {% for order in commandes %}
         <div class="col-4">
             <div class="card text-center">
@@ -29,5 +32,73 @@
 {% endfor %}
     </div>
 </div>
-
+{% else %}
+<div class="text-center mt-5">
+    <h2 class="text-center text-secondary">Vous n'avez pas encore fait des commandes</h2>
+    <a href="{{ path('home') }}" class="btn btn-primary mt-4 col-2 p-1" >Découvrir notre collection</a>
+</div>
+{% endif %}
+<h2 class="text-center text-secondary mt-5">FAQ</h2>
+<div class="accordion mt-2" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Comment puis-je suivre ma commande ?
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Pour suivre votre commande, connectez-vous à votre compte, accédez à la section "Suivi des commandes" et saisissez votre numéro de commande. Vous pourrez ainsi voir l'état actuel de votre commande et obtenir des mises à jour en temps réel sur sa progression.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Combien de temps faut-il pour que ma commande soit livrée ?
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Le délai de livraison dépend du mode de livraison que vous avez sélectionné lors de votre commande. En général, nous expédions les commandes dans les 24 heures suivant leur validation. Les délais de livraison varient ensuite en fonction de votre lieu de résidence et du mode de transport choisi. Vous pouvez consulter notre page "Livraison" pour obtenir plus de détails sur les délais de livraison estimés.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Puis-je modifier mon adresse de livraison après avoir passé ma commande ?
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       Malheureusement, une fois que votre commande a été validée, nous ne pouvons généralement pas modifier l'adresse de livraison. Nous vous recommandons de vérifier attentivement vos informations de livraison avant de finaliser votre commande afin d'éviter tout désagrément. Si vous rencontrez des problèmes spécifiques, veuillez contacter notre service clientèle pour voir s'il est possible d'apporter des modifications.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        Que dois-je faire si ma commande n'est pas encore arrivée ?
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       Si votre commande prend plus de temps que prévu pour arriver, veuillez d'abord vérifier l'état de suivi de votre commande sur notre site web. Si le suivi indique que la commande est en transit, veuillez patienter encore un peu, car il peut y avoir des retards imprévus liés à la livraison. Si votre commande dépasse largement le délai de livraison estimé et que le suivi n'est pas mis à jour, veuillez contacter notre service clientèle pour obtenir de l'aide et des informations supplémentaires.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+       Puis-je annuler ma commande ?
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       Oui, vous pouvez annuler votre commande tant qu'elle n'a pas encore été expédiée. Pour annuler votre commande, veuillez contacter notre service clientèle dès que possible et fournir les détails de votre commande. Si la commande n'a pas encore été expédiée, nous procéderons à l'annulation et à un remboursement si nécessaire. Cependant, veuillez noter que si la commande a déjà été expédiée, vous devrez attendre de la recevoir, puis entamer le processus de retour conformément à notre politique de retour.
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
