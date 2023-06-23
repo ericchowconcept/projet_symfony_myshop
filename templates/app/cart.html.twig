@@ -3,7 +3,9 @@
 {% block title %}Panier{% endblock %}
 
 {% block body %}
-<div class="container">
+<h1 class="text-center my-5">Votre panier</h1>
+{% if items %}
+<div class="container" style="min-height: 100vh;">
     <table class="table">
         <thead>
             <tr>
@@ -40,4 +42,10 @@
         {% endif %}
     </div>
 </div>
+{% else %}
+<div class="text-center" style="min-height: 100vh;">
+    <p class="my-3 text-center">Votre panier est vide</p>    
+    <a href="{{ path('home') }}" class="btn btn-primary mt-1 col-2 p-1 text-center" >Découvrir notre collection</a>
+</div>
+{% endif %}
 {% endblock %}

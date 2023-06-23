@@ -12,7 +12,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         {# <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg> #}
-        <img src="{{ asset('images/produit/1.jpg') }}" alt="" style="height: 600px; width: 100vw; object-fit: cover;"  class="img-fluid">
+        <img src="{{ asset('images/produit/1.jpg') }}" alt="" style="height: 80vh; width: 100vw; object-fit: cover;"  class="img-fluid">
         <div class="container p-2">
           <div class="carousel-caption text-start">
             <h2 >Rejoignez le mouvement pour une mode éco-responsable</h2>
@@ -23,7 +23,7 @@
       </div>
       <div class="carousel-item active">
         {# <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg> #}
-        <img src="{{ asset('images/produit/2.jpg') }}" alt="" style="height: 600px; width: 100vw; object-fit: cover;"  class="img-fluid">
+        <img src="{{ asset('images/produit/2.jpg') }}" alt="" style="height: 80vh; width: 100vw; object-fit: cover;"  class="img-fluid">
         <div class="container p-2">
           <div class="carousel-caption">
             <h1>L'indispensable de votre garde-robe : Les polos de qualité supérieure</h1>
@@ -34,7 +34,7 @@
       </div>
       <div class="carousel-item">
         {# <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg> #}
-        <img src="{{ asset('images/produit/3.jpg') }}" alt="" style="height: 600px; width: 100vw; object-fit: cover;"  class="img-fluid">
+        <img src="{{ asset('images/produit/3.jpg') }}" alt="" style="height: 80vh; width: 100vw; object-fit: cover;"  class="img-fluid">
         <div class="container p-2">
           <div class="carousel-caption text-end">
             <h2>Notre parcours vers l'excellence</h2>
@@ -53,24 +53,72 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+<div class="container feature">
+  <div class="row featurette my-5">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">L'élégance à son apogée :<span class="text-muted"> Découvrez nos polos d'une beauté inégalée</span></h2>
+      <p class="lead">Chaque polo est méticuleusement conçu pour capturer l'essence de l'élégance intemporelle, avec des détails exquis et des finitions impeccables. Découvrez nos polos qui évoquent une beauté véritablement remarquable.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="{{ asset('images/produit/rougeprofil.png') }}" alt="" style="object-fit: cover;"  class="img-fluid">
+    </div>
+  </div>
+  <div class="row featurette mb-5">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Des polos qui enchantent les sens : <span class="text-muted">Explorez notre collection de beauté textile</span></h2>
+      <p class="lead">Nos polos sont bien plus que de simples vêtements - ce sont des œuvres d'art à part entière. Laissez-vous séduire par des motifs captivants, des couleurs éclatantes et des textures luxueuses qui font de nos polos une véritable célébration de la beauté.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+           <img src="{{ asset('images/produit/bleuprofil.png') }}" alt="" style="object-fit: cover;"  class="img-fluid">
+    </div>
+  </div>
+</div>
+<div class="container px-4 py-5" id="hanging-icons">
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 text-center">
+      <div class="col d-flex align-items-center ">
+        <div>
+          <h3 class="fs-2">Qualité</h3>
+          <p class="mt-3"> Nous nous engageons à offrir des polos d'une qualité exceptionnelle, durables et conçus pour vous accompagner pendant de nombreuses années.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-center">       
+        <div>
+          <h3 class="fs-2">Style intemporel </h3>
+          <p class="mt-3">Nos polos sont conçus avec un sens aiguisé de l'esthétique intemporelle, alliant élégance classique et modernité subtile. </p>         
+        </div>
+      </div>
+      <div class="col d-flex align-items-center">        
+        <div>
+          <h3 class="fs-2">Nous sommes verts</h3>
+          <p class="mt-3">Nous sélectionnons avec soin nos matériaux pour minimiser notre impact sur l'environnement. Nous croyons en la construction d'une industrie textile plus durable pour les générations futures.</p> 
+        </div>
+      </div>
+    </div>
+</div>
+<h2 class="text-center">Nos produits</h2>
 
-<div class="container">
+<div class="container mb-3">
   <div class="row">
   {% for produit in produits %}
-    <div class="col-3">
-    <div class="card  border-primary me-1 my-3" style="max-width: 20rem;">
+    <div class="col-4">
+      <div class="px-2">
+    <div class="card  border-primary me-1 my-3">
     <div class="card-header">{{ produit.titre }}</div>
     <div class="card-body">
+    <div class="text-center">
       <img src="{{ asset('images/produit/' ~ produit.photo) }}" alt=""  width="300px" height="500px" class="img-fluid">
+    </div>
       <p class="card-text my-2">{{ produit.description|striptags }}</p>
       <h5 class="text-end">{{ produit.prix|format_currency('EUR') }}</h5>
     </div>
-    <div class="card-footer row d-flex">
-      <a href="{{ path('cart_add', {id: produit.id}) }}" class="btn btn-primary"><i class="fas fa-cart-arrow-down fa-lg"></i></a>
+    <div class="card-footer col">
+      <a href="{{ path('cart_add', {id: produit.id}) }}" class="btn btn-primary col"><i class="fas fa-cart-arrow-down fa-lg"></i></a>
     </div>
   </div>
+</div>
 </div>
 {% endfor %}
 </div>
 </div>
+
 {% endblock %}
